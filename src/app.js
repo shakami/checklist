@@ -14,7 +14,7 @@
         getData();
         
         function getData() {
-            $http.get("data/data.json")
+            $http.get("https://api.jsonbin.io/b/5e536bcbd3c2f35597f6cb59/latest")
             .then(function(response) {
                 $scope.data = response.data;
             });
@@ -23,9 +23,9 @@
         function updateData() {
             var req =
             {
-                method: 'POST',
-                url: 'data/data.json',
-                headers: { 'Accept': 'application/json', 'Cache-Control': 'no-cache', 'Content-Type': 'application/json' },
+                method: 'PUT',
+                url: 'https://api.jsonbin.io/b/5e536bcbd3c2f35597f6cb59',
+                headers: { 'Content-Type': 'application/json' },
                 data: $scope.data
             };
 
