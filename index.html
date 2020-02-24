@@ -29,14 +29,26 @@
     
     <main ng-controller="HomeController">
         <div class="container">
-            
-            <div ng-repeat="item in data" class="form-group form-check">
-                <input type="checkbox" class="form-check-input" ng-model="item.value" ng-change="updateData()">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            
-            <div>
-                <p ng-repeat="item in data">{{item.value}}</p>
+            <div class="form-group">
+                <div ng-repeat="item in data">
+                    <div ng-hide="editing" class="form-group form-check mb-3">
+                        <input type="checkbox" class="form-check-input" ng-model="item.value" ng-change="updateData()">
+                        <label class="form-check-label" for="exampleCheck1">{{ item.name }}</label>
+                    </div>
+                    <div class="input-group mb-3" ng-show="editing">
+                        <input ng-show="editing" class="form-control" ng-model="item.name" />
+                        <button class="btn btn-sm btn-danger" ng-click="deleteItem(item)">Delete</button>
+                    </div>
+                </div>
+                <div ng-show="adding" class="form-group">
+                    <input class="form-control" ng-model="newItem.name" />
+                </div>
+                
+
+                <button ng-hide="adding" class="btn btn-success" ng-click="toggleAdd()">Add</button>
+                <button ng-show="adding" class="btn btn-success" ng-click="add()">Save</button>
+                <button ng-hide="editing" class="btn btn-primary" ng-click="toggleEdit()">Edit</button>
+                <button ng-show="editing" class="btn btn-primary" ng-click="save()">Save</button>
             </div>
         </div>
     </main>
