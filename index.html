@@ -12,27 +12,26 @@
 <body ng-app="app">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/checklist">Our Move <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/checklist">Our Move <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+            </div>
+        </nav>
     </header>
     
     <main ng-controller="HomeController">
         <div class="container">
             
-            
             <div ng-repeat="item in data" class="form-group form-check">
-                <input type="checkbox" class="form-check-input" ng-model="item.value">
+                <input type="checkbox" class="form-check-input" ng-model="item.value" ng-change="updateData()">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             
@@ -50,7 +49,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     
-    <script src="src/app.js"></script>
+    <script src="src/app.js" type="text/javascript"></script>
     
 </body>
 </html>
