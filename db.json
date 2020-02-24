@@ -1,19 +1,34 @@
-[{
-	"name": "check1",
-	"value": false
-}, {
-	"name": "check2",
-	"value": false
-}, {
-	"name": "check3",
-	"value": false
-}, {
-	"name": "check4",
-	"value": false
-}, {
-	"name": "check5",
-	"value": false
-}, {
-	"name": "check6",
-	"value": false
-}]
+[
+    {
+        "name":"Apply for Apartment #355",
+        "value":false
+    },
+    {
+        "name":"Reserve Freight Elevator at IMT if Needed",
+        "value":false
+    },
+    {
+        "name":"Take Time-Off 3/30 thru 4/3",
+        "value":false
+    },
+    {
+        "name":"Book U-Haul for 3/30",
+        "value":false
+    },
+    {
+        "name":"Reserve Movers",
+        "value":false
+    },
+    {
+        "name":"Book Flight for 3/29 LAX -> SEA",
+        "value":false
+    },
+    {
+        "name":"Book Hotel for 3/31 @Medford",
+        "value":false
+    },
+    {
+        "name":"Book Hotel for 4/1 @Fresno",
+        "value":false
+    }
+]

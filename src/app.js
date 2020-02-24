@@ -1,12 +1,20 @@
 (function() {
     
     'use strict';
-    
     var app = angular.module('app', []);
+
+    app.constant('toastr', toastr)
+    app.config(toastrConfig);
+
+    function toastrConfig(toastr) {
+        toastr.options.timeOut = 4000;
+        toastr.options.positionClass = 'toast-bottom-right';
+    }
+    
     
     app.controller('HomeController', HomeController);
     
-    function HomeController($scope, $http) {
+    function HomeController($scope, $http, toastr) {
         $scope.myCheck = false;
         $scope.data = [];
         $scope.updateData = updateData;
@@ -18,7 +26,6 @@
         $scope.toggleAdd = toggleAdd;
         $scope.add = add;
         $scope.deleteItem = deleteItem;
-        
         
         getData();
         
@@ -33,6 +40,9 @@
             $http(req)
             .then(function(response) {
                 $scope.data = response.data;
+            })
+            .catch(function(response) {
+                showToastError(response.status + " " + response.statusText);  
             });
         }
         
@@ -46,8 +56,11 @@
             };
 
             $http(req)
-                .then(function() {
+            .then(function() {
                 getData();
+            })
+            .catch(function(response) {
+                showToastError(response.status + " " + response.statusText);  
             });
         }
         
@@ -58,6 +71,7 @@
         function save() {
             updateData();
             toggleEdit();
+            showToastSucess("Saved to the server.");
         }
         
         function toggleAdd() {
@@ -69,6 +83,7 @@
                 $scope.data.push($scope.newItem);
                 updateData();
                 toggleAdd();
+                showToastSucess("Saved to the server.");
             } else {
                 toggleAdd();
             }
@@ -79,8 +94,17 @@
             if (i > -1) {
                 $scope.data.splice(i, 1);
                 updateData();
+                showToastSucess("Saved to the server.");
             }
             toggleEdit();    
+        }
+        
+        function showToastSucess(message) {
+            toastr.success(message, 'Success!');
+        }
+        
+        function showToastError(message) {
+            toastr.error('Something bad happened. ' + message, 'Womp womp');
         }
     }
     
