@@ -23,7 +23,7 @@
         function updateData() {
             var req =
             {
-                method: 'PUT',
+                method: 'POST',
                 url: 'data/data.json',
                 headers: { 'Accept': 'application/json', 'Cache-Control': 'no-cache', 'Content-Type': 'application/json' },
                 data: $scope.data
